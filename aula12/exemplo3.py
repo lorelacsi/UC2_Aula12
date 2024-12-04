@@ -28,9 +28,9 @@ try:
         else:
             df_bolsa_familia = df
 
-    print(df.head())
-
-    del df
+        del df
+        print(df_bolsa_familia.head())
+        print(f'Arquivo {arquivo} processados com sucesso!')
 
     gc.collect()
 
