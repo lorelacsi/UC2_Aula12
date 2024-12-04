@@ -12,7 +12,7 @@ try:
 
     lista_arquivos = []
 
-    lista_arquivos = os.listdir(ENDEREÇO_DADOS)
+    lista_dir_arquivos = os.listdir(ENDEREÇO_DADOS)
 
     for arquivo in lista_dir_arquivos:
         if arquivo.endswith('.csv'):
@@ -32,6 +32,10 @@ try:
         print(df_bolsa_familia.head())
         print(f'Arquivo {arquivo} processados com sucesso!')
 
+    df_bolsa_familia.write_parquet(ENDEREÇO_DADOS + 'bolsa_familia.parquet')
+    
+    del df_bolsa_familia
+    
     gc.collect()
 
     hora_impressao = datetime.now()
